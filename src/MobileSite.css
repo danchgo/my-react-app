@@ -1,0 +1,8 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  /* Add styles for larger screens if needed */
+}

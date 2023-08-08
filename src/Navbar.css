@@ -1,0 +1,79 @@
+/* Navbar.css */
+.navbar {
+  background-color: #222222;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  /* Apply hover effect */
+  transition: color 0.3s ease;
+}
+
+/* Add hover effect */
+.nav-links a:hover {
+  color: lightblue;
+}
+
+/* Styles for the search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  border: 1px solid #222;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #333;
+}
+
+/* Media Query for Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  
+  .nav-links {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
