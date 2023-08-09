@@ -21,15 +21,19 @@ app.post('/submit-email', (req, res) => {
   console.log('CSV file path:', csvFilePath);
 
   // Read existing emails from CSV file
-  const existingEmails = fs.readFileSync(csvFilePath, 'utf-8').split('\n');
+  const existingEntries = fs.readFileSync(csvFilePath, 'utf-8').split('\n');
 
-  if (existingEmails.includes(email)) {
+  if (existingEntries.some((entry) => entry.includes(email))) {
     return res.status(400).json({ error: 'Email already exists.' });
   }
 
   try {
-    fs.appendFileSync(csvFilePath, `${email}\n`);
-    console.log('Email added to CSV:', email);
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+    const emailEntry = `${formattedDate} - ${email}`;
+
+    fs.appendFileSync(csvFilePath, `${emailEntry}\n`);
+    console.log('Email added to CSV:', emailEntry);
     res.status(201).json({ message: 'Email added to CSV.' });
   } catch (error) {
     console.error('Error writing email to CSV:', error);

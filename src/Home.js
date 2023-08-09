@@ -4,10 +4,9 @@ import './SiteMap.css';
 import heroImage from './images/hero-image.jpeg'; // Replace with your image path
 import WelcomePopup from './WelcomePopup';
 
-
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
-   const [capturedEmail, setCapturedEmail] = useState('');
+  const [capturedEmail, setCapturedEmail] = useState('');
 
   useEffect(() => {
     // Check if the popup has been shown before using localStorage
@@ -22,6 +21,10 @@ const Home = () => {
 
   const handleClosePopup = () => {
     setShowPopup(false);
+  };
+
+  const handleShowPopup = () => {
+    setShowPopup(true);
   };
 
   const handleEmailCaptured = (email) => {
@@ -39,10 +42,10 @@ const Home = () => {
         <div className="hero-content">
           <h1>Welcome to Our Website</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique metus ut justo bibendum, a bibendum odio vulputate.</p>
-          <button className="btn-primary">Learn More</button>
+          <button className="btn-primary" onClick={handleShowPopup}>Show Welcome Popup</button>
         </div>
       </header>
-        <section className="features">
+      <section className="features">
         <div className="feature">
           <h2>Quality Services</h2>
           <p>We provide top-notch services to meet your needs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -52,14 +55,9 @@ const Home = () => {
           <p>Learn more about our company and our mission. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </section>
-    <SiteMap />
+      <SiteMap />
     </div>
   );
 };
 
 export default Home;
-
-
-
-
-

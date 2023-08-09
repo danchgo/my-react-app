@@ -42,9 +42,15 @@ const WelcomePopup = ({ onClose, onEmailCaptured }) => {
     onClose();
   };
 
+  const handleExit = () => {
+    // Call the onClose callback to close the popup without submitting an email
+    onClose();
+  };
+
   return (
     <div className="welcome-popup">
       <div className="popup-content">
+        <button className="exit-button" onClick={handleExit}>x</button>
         <h2>Welcome to Our Website!</h2>
         <p>Thank you for visiting us. Enjoy exploring our services and content.</p>
         <form onSubmit={handleSubmit}>
